@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourism Hub - Explore the World</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #000;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .hero h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .hero h3 {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .hero h4 {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero .tagline {
+            font-size: 1.2em;
+            font-style: italic;
+            margin-top: 30px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: #f0f8ff;
+            padding: 15px;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-top: 4px solid #000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #000;
+            padding: 20px;
+        }
+
+        /* Intro Text */
+        .intro {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95em;
+        }
+
+        /* Blockquote */
+        .blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+        }
+
+        .blockquote cite {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+            font-style: normal;
+        }
+
+        /* White Cards */
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 20px 0;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+
+        /* Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .icon {
+            font-size: 1.3em;
+        }
+
+        /* Nested List */
+        .nested-list {
+            margin-top: 15px;
+            margin-left: 30px;
+            background-color: #fafafa;
+            padding: 20px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        /* Table Section */
+        .table-section {
+            margin: 40px 0;
+        }
+
+        .table-section h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            font-size: 0.95em;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            color: #555;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Steps Section */
+        .steps-section {
+            margin: 40px 0;
+        }
+
+        .steps-section h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .steps-list {
+            color: #666;
+            padding-left: 20px;
+        }
+
+        .steps-list li {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        /* Image Gallery */
+        .gallery-section {
+            margin: 40px 0;
+        }
+
+        .gallery-section h2 {
+            color: #4CAF50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.8em;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(255,255,255,0.1);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border: 3px solid #b8e6b8;
+            border-radius: 4px;
+        }
+
+        .gallery-item p {
+            padding: 15px;
+            text-align: center;
+            color: #555;
+            font-weight: 500;
+        }
+
+        /* Links */
+        a {
+            color: #4CAF50;
+        }
+
+        .underline-link {
+            text-decoration: underline;
+            color: #555;
+        }
+
+        /* Price styling */
+        .old-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-right: 5px;
+        }
+
+        .new-price {
+            color: #333;
+            font-weight: bold;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+            
+            .hero h1 {
+                font-size: 1.8em;
+            }
+            
+            table {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Tourism Hub (H1)</h1>
+        <h2>Travel with US (H2)</h2>
+        <h3>100% Adventure (H3)</h3>
+        <h4>Local Experiences (H4)</h4>
+        <h2>"We are the best!"</h2>
+        <p class="tagline">Adventure Awaits Daily – Your Neighborhood Travel Guide, Online!</p>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#deals">Weekly Deals</a></li>
+            <li><a href="#packages">Travel Info</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- Intro -->
+        <p class="intro">
+            Our travel agency is your one-stop destination for unforgettable journeys, quality vacation packages, and everyday adventure deals. We carefully select our destinations to ensure safety, affordability, and trusted experiences for you and your family.
+        </p>
+
+        <p class="intro">
+            With friendly service and a clean, organized booking process, we make traveling simple, convenient, and enjoyable.
+        </p>
+
+        <!-- Blockquote -->
+        <div class="blockquote">
+            "Adventure you can trust, prices you can afford, and service with a smile — your neighborhood travel agency committed to quality every day."
+            <cite>— Tourism Hub</cite>
+        </div>
+
+        <!-- Featured Categories -->
+        <div class="card" id="destinations">
+            <h2>Featured Destinations</h2>
+            <ul class="feature-list">
+                <li><span class="icon">🏖️</span> Beach Resorts</li>
+                <li><span class="icon">🏔️</span> Mountain Expeditions</li>
+                <li><span class="icon">🏛️</span> Cultural Heritage Sites</li>
+                <li><span class="icon">🦁</span> Wildlife Safaris</li>
+                <li><span class="icon">🏙️</span> City Tours</li>
+                <li><span class="icon">🌲</span> Eco-Tourism</li>
+            </ul>
+        </div>
+
+        <!-- Weekly Deals -->
+        <div class="card" id="deals">
+            <h2>This Week's Top Picks</h2>
+            <ul class="feature-list">
+                <li><span class="icon">✈️</span> Mombasa Beach Package – <span class="old-price">KES 45,000</span> <span class="new-price">KES 35,000</span></li>
+                <li><span class="icon">🚐</span> Maasai Mara Safari 3 Days – <span class="old-price">KES 60,000</span> <span class="new-price">KES 48,000</span></li>
+                <li><span class="icon">🌄</span> Mount Kenya Trek – <span class="old-price">KES 35,000</span> <span class="new-price">KES 28,000</span></li>
+                <li><span class="icon">🏝️</span> Zanzibar Getaway – <span class="old-price">KES 80,000</span> <span class="new-price">KES 65,000</span></li>
+            </ul>
+        </div>
+
+        <!-- Travel Info -->
+        <div class="card" id="packages">
+            <h2>Travel & Booking</h2>
+            <ul class="feature-list">
+                <li><span class="icon">🚗</span> <a href="#" class="underline-link">Same-day booking confirmation</a></li>
+                <li><span class="icon">💰</span> <a href="#" class="underline-link">Free cancellation on bookings over KSh 50,000</a></li>
+                <li><span class="icon">📋</span> <a href="#" class="underline-link">Travel documents ready within 24 hours</a></li>
+            </ul>
+            <p style="margin-top: 20px; color: #666;">Group departures available every 25th day of the month</p>
+        </div>
+
+        <!-- Contact -->
+        <div class="card" id="contact">
+            <h2>Contact & Support</h2>
+            <ul class="feature-list">
+                <li><span class="icon">📞</span> <strong>WhatsApp: +254 712 345 678</strong></li>
+                <li><span class="icon">✉️</span> <strong>Email: support@tourismhub.co.ke</strong></li>
+                <li><span class="icon">💬</span> <strong>Live Chat: Available 8am–8pm daily</strong></li>
+            </ul>
+        </div>
+
+        <!-- Things to Pack -->
+        <div class="card">
+            <h2 style="color: #4CAF50; text-align: center; margin-bottom: 20px;">Things to Pack for Your Trip</h2>
+            <ul class="feature-list">
+                <li>Passport & Travel Documents</li>
+                <li>Comfortable Walking Shoes</li>
+                <li>Sunscreen & Sunglasses</li>
+                <li>Camera & Chargers</li>
+            </ul>
+            <div class="nested-list">
+                <ul class="feature-list">
+                    <li>First Aid Kit</li>
+                    <li>Power Adapter</li>
+                    <li>Travel Pillow</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Top Destinations Table -->
+        <div class="table-section">
+            <h2>Our Top Destinations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>DESTINATION</th>
+                        <th>TYPE</th>
+                        <th>PRICE</th>
+                        <th>AVAILABILITY</th>
+                        <th>DURATION</th>
+                        <th>GUIDED</th>
+                        <th>MEALS INCLUDED</th>
+                        <th>INTERNATIONAL</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Maasai Mara</strong></td>
+                        <td>Safari</td>
+                        <td>KES 45,000</td>
+                        <td>Available</td>
+                        <td>3 Days</td>
+                        <td>YES</td>
+                        <td>YES</td>
+                        <td>NO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Diani Beach</strong></td>
+                        <td>Beach</td>
+                        <td>KES 25,000</td>
+                        <td>Limited</td>
+                        <td>4 Days</td>
+                        <td>NO</td>
+                        <td>YES</td>
+                        <td>NO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Mount Kenya</strong></td>
+                        <td>Trekking</td>
+                        <td>KES 35,000</td>
+                        <td>Available</td>
+                        <td>5 Days</td>
+                        <td>YES</td>
+                        <td>YES</td>
+                        <td>NO</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Serengeti</strong></td>
+                        <td>Safari</td>
+                        <td>KES 85,000</td>
+                        <td>Booked</td>
+                        <td>4 Days</td>
+                        <td>YES</td>
+                        <td>YES</td>
+                        <td>YES</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Lamu Island</strong></td>
+                        <td>Cultural</td>
+                        <td>KES 30,000</td>
+                        <td>Available</td>
+                        <td>3 Days</td>
+                        <td>YES</td>
+                        <td>NO</td>
+                        <td>NO</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Steps to Plan -->
+        <div class="steps-section">
+            <h2>Steps to Plan Your Perfect Vacation</h2>
+            <ol class="steps-list">
+                <li><strong>Choose Your Destination</strong> Beach, mountains, city, or safari. Research thoroughly and pick what suits your mood (wrong choice = ruined holiday).</li>
+                
+                <li><strong>Set Your Budget</strong> Include flights, accommodation, meals, and activities. Optional: emergency fund for shopping and unexpected adventures.</li>
+                
+                <li><strong>Book in Advance</strong> Flights, hotels, and tours. Early booking saves money and guarantees availability during peak seasons.</li>
+                
+                <li><strong>Prepare Documents</strong> Passport, visa, travel insurance, and vaccination certificates. For international trips: check expiry dates carefully.</li>
+                
+                <li><strong>Pack Smart</strong> Use a checklist to organize essentials. Don't forget adapters, medications, and comfortable clothing.</li>
+                
+                <li><strong>Enjoy & Explore</strong> Best experienced with an open mind. Take photos, try local cuisine, and make unforgettable memories.</li>
+                
+                <li><strong>Share your stories and start planning the next trip!</strong></li>
+            </ol>
+        </div>
+
+        <!-- Available Packages Gallery -->
+        <div class="gallery-section">
+            <h2>Available Packages</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=400&h=300&fit=crop" alt="Safari">
+                    <p>Wildlife Safari Experience - 3 Days</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop" alt="Beach">
+                    <p>Coastal Beach Retreat - 5 Days</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=400&h=300&fit=crop" alt="Mountains">
+                    <p>Mountain Adventure Trek - 4 Days</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
